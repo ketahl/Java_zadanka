@@ -1,14 +1,17 @@
 package com.zadanka;
 
 import devices.Car;
+import devices.Phone;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
 public class Human {
-    Animal pet;
-    private Car car;
+    public Animal pet;
+    public Car car;
     private Double salary;
+    public Double cash;
+    public Phone phone;
 
     public Double getSalary() {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");

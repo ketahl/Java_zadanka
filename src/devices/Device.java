@@ -1,6 +1,8 @@
 package devices;
 
-public abstract class Device {
+import com.zadanka.salleable;
+
+public abstract class Device implements salleable {
     protected final String model = "";
     protected final String producer = "";
     protected final String yearOfProduction = "";

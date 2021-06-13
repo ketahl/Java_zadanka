@@ -1,6 +1,6 @@
 package com.zadanka;
 
-public class Animal {
+public class Animal implements salleable {
     final String species;
     private Double weight;
 
@@ -54,5 +54,21 @@ public class Animal {
                 "species='" + species + '\'' +
                 ", weight=" + weight +
                 '}';
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        if(seller.pet != this || buyer.cash < price){
+            System.out.println("Transakcja nie może zostać przeprowadzona");
+        }
+        else
+        {
+            buyer.cash -= price;
+            seller.cash += price;
+            buyer.pet = seller.pet;
+            seller.pet = null;
+            System.out.println("Transakcja przeprowadzona pomyślnie");
+        }
+
     }
 }
