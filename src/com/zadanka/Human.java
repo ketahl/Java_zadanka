@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 
 public class Human {
     Animal pet;
-    public Car car;
+    private Car car;
     private Double salary;
 
     public Double getSalary() {
@@ -26,6 +26,26 @@ public class Human {
             System.out.println("Konieczne jest wybranie aneksu od Pani Hani z kadr");
             System.out.println("ZUS, US i Twój agent FBI zostali poinformowani. Nie ma sensu ukrywać dochodu");
             this.salary = salary;
+        }
+    }
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        if(salary > car.value)
+        {
+            this.car = car;
+            System.out.println("Samochód pomyślnie kupiony za gotówkę");
+        }
+        else if( salary < car.value && salary > (car.value/12))
+        {
+            this.car = car;
+            System.out.println("Kupiono samochód na kredyt");
+        }
+        else
+        {
+            System.out.println("Nie stać cię. Trzeba było zainwestować w bitcoina kilka lat temu");
         }
     }
 }
