@@ -1,6 +1,6 @@
 package devices;
 
-public class Car {
+public class Car extends Device {
     private final String model;
     private final String producer;
     private boolean ABS;
@@ -23,5 +23,11 @@ public class Car {
                 ", LPGPowered=" + LPGPowered +
                 ", value=" + value +
                 '}';
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Samochód robi brrrum");
+
     }
 }

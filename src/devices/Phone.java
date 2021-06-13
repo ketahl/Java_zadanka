@@ -1,8 +1,14 @@
 package devices;
 
-public class Phone {
+public class Phone extends Device {
+
     @Override
     public String toString() {
-        return "Phone{}";
+        return "Phone{} model: " + this.model ;
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Telefon robi brrr");
     }
 }
