@@ -1,4 +1,4 @@
-package com.zadanka;
+package devices;
 
 public class Car {
     private final String model;
@@ -14,5 +14,14 @@ public class Car {
         this.ABS = ABS;
         this.LPGPowered = LPGPowered;
         this.value = value;
+    }
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", producer='" + producer + '\'' +
+                ", ABS=" + ABS +
+                ", LPGPowered=" + LPGPowered +
+                ", value=" + value +
+                '}';
     }
 }

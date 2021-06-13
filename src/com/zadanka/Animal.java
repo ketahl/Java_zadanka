@@ -49,4 +49,10 @@ public class Animal {
             this.weight -= 2;
         }
     }
+    public String toString() {
+        return "Animal{" +
+                "species='" + species + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }

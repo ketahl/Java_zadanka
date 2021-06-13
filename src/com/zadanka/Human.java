@@ -1,5 +1,7 @@
 package com.zadanka;
 
+import devices.Car;
+
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
@@ -47,5 +49,12 @@ public class Human {
         {
             System.out.println("Nie stać cię. Trzeba było zainwestować w bitcoina kilka lat temu");
         }
+    }
+    public String toString() {
+        return "Human{" +
+                "pet=" + pet +
+                ", car=" + car +
+                ", salary=" + salary +
+                '}';
     }
 }
