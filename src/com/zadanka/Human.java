@@ -1,5 +1,6 @@
 package com.zadanka;
 
+import creatures.Animal;
 import devices.Car;
 import devices.Phone;
 

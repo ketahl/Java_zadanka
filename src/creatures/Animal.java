@@ -1,8 +1,12 @@
-package com.zadanka;
+package creatures;
 
-public class Animal implements salleable {
+import com.zadanka.Human;
+import com.zadanka.salleable;
+
+public abstract class Animal implements salleable, Feedable {
     final String species;
-    private Double weight;
+    protected Double weight;
+
 
     public Animal(String species) {
         this.species = species;
