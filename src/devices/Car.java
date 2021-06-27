@@ -3,7 +3,7 @@ package devices;
 import com.zadanka.Human;
 import com.zadanka.salleable;
 
-public class Car extends Device implements salleable {
+public abstract class Car extends Device implements salleable {
     private final String model;
     private final String producer;
     private boolean ABS;
@@ -47,4 +47,5 @@ public class Car extends Device implements salleable {
         }
 
     }
+    public abstract void refuel();
 }
