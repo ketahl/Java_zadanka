@@ -1,8 +1,9 @@
 package devices;
 
 public class Diesel extends Car{
-    public Diesel(String model, String producer, boolean ABS, boolean LPGPowered, Double value) {
-        super(model, producer, ABS, LPGPowered, value);
+    public Diesel(String model, String producer, boolean ABS, boolean LPGPowered, Double value, int yearofproduction)
+    {
+        super(model, producer, ABS, LPGPowered, value, yearofproduction);
     }
 
     @Override

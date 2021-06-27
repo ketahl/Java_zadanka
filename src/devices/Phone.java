@@ -12,6 +12,10 @@ public class Phone extends Device implements salleable
     public static final String serverprotocol = "https";
     public static final String serverversion = "v1.0";
 
+    public Phone(String model, String producer, int yearOfProduction) {
+        super(model, producer, yearOfProduction);
+    }
+
     @Override
     public String toString() {
         return "Phone{} model: " + this.model;
