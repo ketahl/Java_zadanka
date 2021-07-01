@@ -3,11 +3,16 @@ package devices;
 import com.zadanka.Human;
 import com.zadanka.salleable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Car extends Device implements salleable, Comparable<Car>
 {
     private boolean ABS;
     private boolean LPGPowered;
     public Double value;
+    public ArrayList<Human> owners;
+
 
     public Car (String model, String producer, boolean ABS, boolean LPGPowered, Double value, int yearofproduction)
     {
@@ -15,6 +20,7 @@ public abstract class Car extends Device implements salleable, Comparable<Car>
         this.ABS = ABS;
         this.LPGPowered = LPGPowered;
         this.value = value;
+        this.owners = new ArrayList<Human>();
     }
 
     @Override
@@ -86,10 +92,15 @@ public abstract class Car extends Device implements salleable, Comparable<Car>
         {
             throw new Exception("Kupujący nie ma gotówki");
         }
+        else if (getCurrentOwner()!= seller)
+        {
+            throw new Exception("Auto jest kradzione lub sprzedający nie jest właścicielem pojazdu");
+        }
         else
         {
             removeCarFromGarage(this, seller.garage);
             addBoughtCarToGarage(this, buyer.garage);
+            owners.add(buyer);
             System.out.println("Transakcja przebiegła pomyślnie");
         }
 
@@ -100,4 +111,52 @@ public abstract class Car extends Device implements salleable, Comparable<Car>
     public int compareTo(Car o) {
         return Integer.compare(this.yearOfProduction, o.yearOfProduction);
     }
+    public Human getCurrentOwner()
+    {
+        if (owners.size() == 1)
+        {
+            return owners.get(0);
+        }
+        else if (owners.size() == 0)
+        {
+            return null;
+        }
+        else
+        {
+            return owners.get(owners.size()-1);
+        }
+    }
+    public boolean wasOwner(Human human)
+    {
+        return owners.contains(human);
+    }
+    public boolean transactionOccured(Human a, Human b)
+    {
+        boolean wasOwner = wasOwner(a);
+        if (!wasOwner || owners.size() < 2)
+        {
+            return false;
+        }
+        int index = -1;
+        for (int i = 0; i < owners.size(); i++)
+        {
+            if (owners.get(i)== a)
+            {
+                index = i;
+                break;
+            }
+        }
+        boolean soldToB = false;
+        Human h = owners.get(index + 1);
+        if (h != null && h == b)
+        {
+            soldToB = true;
+        }
+        return soldToB;
+    }
+    public int getNumberOfTransactions()
+    {
+        return owners.size() /2;
+    }
+
 }
